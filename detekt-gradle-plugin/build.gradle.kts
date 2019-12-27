@@ -24,8 +24,10 @@ version = "1.3.0"
 val spekVersion = "2.0.9"
 val junitPlatformVersion = "1.5.2"
 val assertjVersion = "3.14.0"
+val detektVersion = "1.3.0"
 
 dependencies {
+    implementation("io.gitlab.arturbosch.detekt:detekt-cli:$detektVersion")
     implementation(kotlin("stdlib"))
     implementation(kotlin("gradle-plugin"))
     implementation(kotlin("gradle-plugin-api"))
@@ -102,7 +104,7 @@ val generateDefaultDetektVersionFile by tasks.registering {
         defaultDetektVersionFile.writeText("""
             package io.gitlab.arturbosch.detekt
 
-            internal const val DEFAULT_DETEKT_VERSION = "$version"
+            internal const val DEFAULT_DETEKT_VERSION = "$detektVersion"
 
             """.trimIndent()
         )
